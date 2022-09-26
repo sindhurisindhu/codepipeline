@@ -21,6 +21,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
+      - sudo chmod 666 /var/run/docker.sock
       - docker version
       - systemctl docker status
       - systemctl docker start
