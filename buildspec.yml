@@ -2,8 +2,8 @@ version: 0.2
 env:
  variables:
  parameter-store:
-  AWS_ACCESS_KEY_ID: "/codebuild/AKIARTYPWWSYC3C3EPOP"
-  AWS_SECRET_ACCESS_KEY: "/codebuild/ncy0cA/oE8UZFh2AMBZ3WJDMZ5nUf6lti55IJxau"
+  AWS_ACCESS_KEY_ID: "AKIARTYPWWSYC3C3EPOP"
+  AWS_SECRET_ACCESS_KEY: "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"
   
 phases:
   pre_build:
