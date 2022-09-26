@@ -21,9 +21,10 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - sudo service docker status
-      - sudo service docker start
-      - sudo docker images
+      - docker version
+      - systemctl docker status
+      - systemctl docker start
+      - docker images
       - docker build -t test .
       - docker tag test:latest 015660451582.dkr.ecr.us-east-1.amazonaws.com/test:latest
   post_build:
