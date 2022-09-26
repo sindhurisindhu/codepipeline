@@ -13,18 +13,19 @@ phases:
       - echo $AWS_DEFAULT_REGION
       - echo $AWS_ACCESS_KEY_ID
       - echo $AWS_SECRET_ACCESS_KEY
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 111165224112.dkr.ecr.us-east-1.amazonaws.com
-      - REPOSITORY_URI=111165224112.dkr.ecr.us-east-1.amazonaws.com/test:latest
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 015660451582.dkr.ecr.us-east-1.amazonaws.com
+      - REPOSITORY_URI=015660451582.dkr.ecr.us-east-1.amazonaws.com/test:latest
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
+      - sudo docker images
       - docker build -t test .
-      - docker tag test:latest 111165224112.dkr.ecr.us-east-1.amazonaws.com/test:latest
+      - docker tag test:latest 015660451582.dkr.ecr.us-east-1.amazonaws.com/test:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push 111165224112.dkr.ecr.us-east-1.amazonaws.com/test:latest
+      - docker push 015660451582.dkr.ecr.us-east-1.amazonaws.com/test:latest
