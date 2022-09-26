@@ -26,10 +26,10 @@ phases:
     # - systemctl docker status
     # - systemctl docker start
     # - docker images
-      - docker build -t test .
-      - docker tag test:latest 015660451582.dkr.ecr.us-east-1.amazonaws.com/test:latest
+      - sudo docker build -t test .
+      - sudo docker tag test:latest 015660451582.dkr.ecr.us-east-1.amazonaws.com/test:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push 015660451582.dkr.ecr.us-east-1.amazonaws.com/test:latest
+      - sudo docker push 015660451582.dkr.ecr.us-east-1.amazonaws.com/test:latest
