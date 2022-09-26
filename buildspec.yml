@@ -10,8 +10,11 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-      - docker version
       - aws configure
+        variables:
+        parameter-store:
+         AWS_ACCESS_KEY_ID: "AKIARTYPWWSYC3C3EPOP"
+         AWS_SECRET_ACCESS_KEY: "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"
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 111165224112.dkr.ecr.us-east-1.amazonaws.com
      # - REPOSITORY_URI=012345678910.dkr.ecr.us-east-1.amazonaws.com/base-image
      # - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
