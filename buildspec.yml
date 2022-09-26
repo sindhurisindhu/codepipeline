@@ -21,6 +21,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
+      - sudo systemctl status docker
       - sudo systemctl start docker
       - sudo docker images
       - docker build -t test .
